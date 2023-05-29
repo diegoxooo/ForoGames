@@ -1,0 +1,25 @@
+.footer {
+  height: auto;
+  background-color: #000000;
+}
+
+.col {
+  position: relative;
+  width: 50%;
+  float: left;
+}
+
+.col h3 {
+  color: white;
+}
+
+.copy p {
+  color: white;
+  margin-left: 10px;
+}
+
+a{
+  font-size: 13px;
+  color: white;
+  text-decoration: none;
+}

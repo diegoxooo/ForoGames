@@ -1,0 +1,8 @@
+span.contactos {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+span.contactos:hover {
+  text-decoration: none;
+}

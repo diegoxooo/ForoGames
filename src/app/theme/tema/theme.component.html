@@ -1,0 +1,26 @@
+<div class="grid-container">
+  <h1 class="mat-h1">{{listaItems[0].tema}}</h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of listaItems" [colspan]="1" [rowspan]="1">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+
+            {{card.comentario}}<span style="margin-left: 100px">{{card.usuario}}</span>
+
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <!-- <form>
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Añade un comentario</mat-label>
+      <textarea matInput rows="10"></textarea>
+    </mat-form-field>
+  </form> -->
+
+</div>

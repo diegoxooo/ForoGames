@@ -1,0 +1,104 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.mat-nav-list {
+  display: inline-flex;
+  font-family: Courier;
+}
+
+.mat-list-item {
+  font-family: monospace;
+  font-weight: 550;
+  margin-left: 10px;
+  color: #ffffff;
+}
+
+img {
+  width: 250px;
+  background-color: transparent;
+  margin-left: 60px;
+}
+
+.logo {
+  display: inline-flex;
+}
+
+.listToolbar {
+  display: inline-flex;
+  margin-left: 50%;
+}
+
+.opcion_menu {
+  border-radius: 10px;
+  text-align: center;
+}
+
+.sidenav {
+  width: 0;
+  /* background-color: #84957B; */
+}
+
+.menuResponsive {
+  visibility: hidden;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+}
+
+.gameToolbar {
+  background: #3f51b5;
+  color: #fff;
+}
+
+.opcion_juego {
+  margin-left: 70px;
+}
+
+.barra {
+  height: 3px;
+  background-color: white;
+}
+
+@media (max-width: 767px) {
+  .listToolbar {
+    visibility: hidden;
+  }
+  .menuResponsive {
+    visibility: visible;
+  }
+  .mat-nav-list {
+    display: block;
+  }
+  .sidenav {
+    width: 200px;
+  }
+  mat-nav-list {
+    display: block;
+  }
+  .mat-list-item {
+    color: black;
+  }
+  .logo {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+@media (max-width: 575px) {
+  .logo {
+    margin-left: -60px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1500px) {
+  .listToolbar {
+    margin-left: 50%;
+  }
+}

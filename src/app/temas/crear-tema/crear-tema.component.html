@@ -1,0 +1,47 @@
+<form [formGroup]="themeForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header class="centrado">
+      <mat-card-title>Nuevo tema</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Tema" formControlName="tema">
+            <mat-error *ngIf="themeForm.controls['tema'].hasError('required')">
+              Tema is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Comentario" formControlName="comentario">
+            <mat-error *ngIf="themeForm.controls['comentario'].hasError('required')">
+              Comentario is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>Selecciona un videojuego</mat-label>
+            <mat-select formControlName="idJuegos">
+              <mat-option *ngFor="let juego of juegos" value="{{juego.id}}">
+                {{juego.juego}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="themeForm.controls['idJuegos'].hasError('required')">
+              Videojuego is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions class="centrado">
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

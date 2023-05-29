@@ -1,10 +1,37 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    loadChildren: () =>
+      import('./sites/sites.module').then((m) => m.SitesModule),
+  },
+  {
+    path: ':id',
+    loadChildren: () =>
+      import('./sites/sites.module').then((m) => m.SitesModule),
+  },
+  {
+    path: 'log',
+    loadChildren: () =>
+      import('./login/login.module').then((m) => m.LoginModule),
+  },
+  {
+    path: 'temas',
+    loadChildren: () =>
+      import('./temas/temas.module').then((m) => m.TemasModule),
+  },
+  {
+    path: 'tema/:id',
+    loadChildren: () =>
+      import('./theme/theme.module').then((m) => m.ThemeModule),
+  },
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

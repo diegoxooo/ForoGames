@@ -1,0 +1,118 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <div class="menuResponsive" *ngIf="login.comprobar()==false; else noLogeadoSide">
+      <mat-toolbar>Menu</mat-toolbar>
+      <mat-nav-list>
+        <div class="barra"></div>
+        <a mat-list-item [routerLink]="['log/login']">Iniciar Sesión</a>
+        <div class="barra"></div>
+        <a mat-list-item [routerLink]="['log/register']">Registrarse</a>
+        <div class="barra"></div>
+      </mat-nav-list>
+    </div>
+
+    <ng-template #noLogeadoSide>
+      <div class="menuResponsive">
+        <mat-toolbar>Menu</mat-toolbar>
+        <mat-nav-list>
+          <div class="barra"></div>
+          <a mat-list-item [routerLink]="['temas/tema/', login.getUsuario()]">Crear Tema</a>
+          <div class="barra"></div>
+          <a mat-list-item [routerLink]="['log/sesion']">Cerrar Sesión</a>
+          <div class="barra"></div>
+        </mat-nav-list>
+      </div>
+    </ng-template>
+  </mat-sidenav>
+
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div class="logo">
+        <a [routerLink]="['']"><img src="assets/logo/logo.png" /></a>
+      </div>
+      <div class="listToolbar" *ngIf="login.comprobar()==false; else noLogeado">
+        <mat-nav-list>
+          <div class="opcion_menu">
+            <a mat-list-item [routerLink]="['log/login']">Iniciar Sesión</a>
+          </div>
+          <div class="opcion_menu">
+            <a mat-list-item [routerLink]="['log/register']">Registrarse</a>
+          </div>
+        </mat-nav-list>
+      </div>
+      <ng-template #noLogeado>
+        <div class="listToolbar">
+          <mat-nav-list>
+            <div class="opcion_menu">
+              <a mat-list-item [routerLink]="['temas/tema/', login.getUsuario()]">Crear Tema</a>
+            </div>
+            <div class="opcion_menu">
+              <a mat-list-item [routerLink]="['log/sesion']">Cerrar Sesión</a>
+            </div>
+          </mat-nav-list>
+        </div>
+      </ng-template>
+    </mat-toolbar>
+    <!-- <div class="gameToolbar">
+      <mat-nav-list>
+        <div class="opcion_juego">
+          <a mat-list-item [routerLink]="['god-of-war']">God of War</a>
+        </div>
+        <div class="opcion_juego">
+          <a mat-list-item [routerLink]="['call-of-duty']">Call of Duty</a>
+        </div>
+        <div class="opcion_juego">
+          <a mat-list-item [routerLink]="['dark-souls']">Dark Souls</a>
+        </div>
+        <div class="opcion_juego">
+          <a mat-list-item [routerLink]="['pokemon']">Pokémon</a>
+        </div>
+        <div class="opcion_juego">
+          <a mat-list-item [routerLink]="['halo']">Halo</a>
+        </div>
+        <div class="opcion_juego">
+          <a mat-list-item [routerLink]="['legend-of-zelda']">The Legend of Zelda</a>
+        </div>
+        <div class="opcion_juego">
+          <a mat-list-item [routerLink]="['bloodborne']">Bloodborne</a>
+        </div>
+      </mat-nav-list>
+    </div> -->
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<!-- <mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div class="logo">
+        <a [routerLink]="['']"><img src="assets/logo/logo.png"/></a>
+      </div>
+      <div class="listToolbar">
+        <mat-nav-list>
+          <div class="opcion_juego">
+            <a mat-list-item [routerLink]="['log/login']">Sign in</a>
+          </div>
+          <div class="opcion_juego">
+            <a mat-list-item [routerLink]="['log/register']">Sign up</a>
+          </div>
+        </mat-nav-list>
+      </div>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container> -->
