@@ -1,6 +1,6 @@
 const express = require('express');
 const themeRoute = express.Router();
-const Coment = require('../models/tema');
+const Coment = require('../models/comentario');
 
 themeRoute.get('/:id', async (req, res) => {
     console.log(req.params.id)

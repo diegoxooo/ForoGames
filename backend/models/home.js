@@ -11,7 +11,7 @@ const getAll = () => {
 
 const getJuego = (idJuegos) => {
     return new Promise((resolve, reject) => {
-        db.query("SELECT juego FROM juegos puerto WHERE idJuegos = ?", [idJuegos], (err, result) => {
+        db.query("SELECT juego FROM juegos WHERE idJuegos = ?", [idJuegos], (err, result) => {
             if (err) reject(err);
             if (result) resolve(result);
         })
