@@ -6,21 +6,22 @@
         <mat-card-header>
           <mat-card-title>
 
-            {{card.comentario}}<span style="margin-left: 100px">{{card.usuario}}</span>
+            <p>{{card.comentario}}</p>
 
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-
+          <p><span style="float: right">{{card.usuario}}</span></p>
         </mat-card-content>
+        
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
-  <!-- <form>
+   <!-- <form>
     <mat-form-field class="full-width" appearance="fill">
       <mat-label>Añade un comentario</mat-label>
       <textarea matInput rows="10"></textarea>
     </mat-form-field>
-  </form> -->
+  </form>-->
 
 </div>

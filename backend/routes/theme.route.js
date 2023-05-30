@@ -10,4 +10,13 @@ themeRoute.get('/:id', async (req, res) => {
     res.json(coment);
 })
 
+themeRoute.post('/:id', async (req, res) => {
+    console.log(req.params.id)
+    let id = req.params.id;
+    let comentario = req.body.comentario;
+    const coment = await Coment.insertComentario(comentario, id, req.body.usuario);
+    console.log(coment);
+    res.json(coment);
+})
+
 module.exports = themeRoute;

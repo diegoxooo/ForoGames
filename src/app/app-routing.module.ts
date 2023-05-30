@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ErrorComponent } from './sites/error/error.component';
 
 const routes: Routes = [
   {
@@ -7,11 +8,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./sites/sites.module').then((m) => m.SitesModule),
   },
-  {
-    path: ':id',
-    loadChildren: () =>
-      import('./sites/sites.module').then((m) => m.SitesModule),
-  },
+  // {
+  //   path: ':id',
+  //   loadChildren: () =>
+  //     import('./sites/sites.module').then((m) => m.SitesModule),
+  // },
   {
     path: 'log',
     loadChildren: () =>
@@ -27,7 +28,10 @@ const routes: Routes = [
     loadChildren: () =>
       import('./theme/theme.module').then((m) => m.ThemeModule),
   },
-
+  {
+    path: '**',
+    component: ErrorComponent
+  }
 ];
 
 @NgModule({

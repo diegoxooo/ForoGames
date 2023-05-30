@@ -9,10 +9,6 @@ const insertTema = ({ tema, idJuegos }) => {
     });
 }
 
-
-
-
-
 const getByTema = (tema) => {
     return new Promise((resolve, reject) => {
         db.query("SELECT * FROM temas WHERE tema = ?", [tema], (err, rows) => {
@@ -24,7 +20,5 @@ const getByTema = (tema) => {
 
 module.exports = {
     insertTema: insertTema,
-    insertComentario: insertComentario,
-    getById: getById,
     getByTema: getByTema
 }

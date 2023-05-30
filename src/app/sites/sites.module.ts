@@ -12,13 +12,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
-import { GodOfWarComponent } from './god-of-war/god-of-war.component';
-import { CallOfDutyComponent } from './call-of-duty/call-of-duty.component';
-import { DarkSoulsComponent } from './dark-souls/dark-souls.component';
-import { PokemonComponent } from './pokemon/pokemon.component';
-import { HaloComponent } from './halo/halo.component';
-import { TheLegendOfZeldaComponent } from './the-legend-of-zelda/the-legend-of-zelda.component';
-import { BloodborneComponent } from './bloodborne/bloodborne.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
@@ -28,13 +21,6 @@ import { ErrorComponent } from './error/error.component';
 @NgModule({
   declarations: [
     TableComponent,
-    GodOfWarComponent,
-    CallOfDutyComponent,
-    DarkSoulsComponent,
-    PokemonComponent,
-    HaloComponent,
-    TheLegendOfZeldaComponent,
-    BloodborneComponent,
     ErrorComponent,
   ],
   imports: [
