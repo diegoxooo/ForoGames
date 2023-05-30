@@ -9,5 +9,5 @@ import retrofit2.http.GET;
 
 public interface TemaAPI {
   @GET("/")
-  Call<List<Temas>> getAnswers();
+  Call<List<Temas>> getTemas();
 }
