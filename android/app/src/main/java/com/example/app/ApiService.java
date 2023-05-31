@@ -21,7 +21,6 @@ public class ApiService {
       .addConverterFactory(GsonConverterFactory.create())
       .build();
   }
-
   public void getTemas(Callback<List<Temas>> callback){
     TemaAPI temaAPI = retrofit.create(TemaAPI.class);
     Call<List<Temas>> call = temaAPI.getTemas();

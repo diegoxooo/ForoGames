@@ -1,8 +1,17 @@
 package com.example.app.models;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Temas {
+  @SerializedName("idTema")
+  @Expose
   private Integer idTema;
+  @SerializedName("tema")
+  @Expose
   private String tema;
+  @SerializedName("idJuegos")
+  @Expose
   private Integer idJuegos;
 
   public Integer getIdTema() {

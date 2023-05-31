@@ -1,2 +1,4 @@
-package com.example.app.interfaces;public interface ComentarioInterface {
+package com.example.app.interfaces;
+
+public interface ComentarioInterface {
 }
