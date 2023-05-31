@@ -6,12 +6,11 @@
   position: absolute;
   top: 40%;
   right: 50%;
-  width: 400px;
+  width: 350px;
   margin-right: -250px;
   height: 200px;
   margin-top: -125px;
   border-radius: 20px;
-  
 }
 
 .mat-radio-button {

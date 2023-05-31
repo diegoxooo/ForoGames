@@ -2,7 +2,7 @@
   height: 100%;
 }
 
-.mat-nav-list {
+mat-nav-list {
   display: inline-flex;
   font-family: Courier;
 }
@@ -10,7 +10,7 @@
 .mat-list-item {
   font-family: monospace;
   font-weight: 550;
-  margin-left: 10px;
+  margin-left: px;
   color: #ffffff;
 }
 
