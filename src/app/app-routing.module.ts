@@ -8,11 +8,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./sites/sites.module').then((m) => m.SitesModule),
   },
-  // {
-  //   path: ':id',
-  //   loadChildren: () =>
-  //     import('./sites/sites.module').then((m) => m.SitesModule),
-  // },
+  {
+    path: ':id',
+    loadChildren: () =>
+      import('./sites/sites.module').then((m) => m.SitesModule),
+  },
   {
     path: 'log',
     loadChildren: () =>

@@ -11,7 +11,7 @@ export class ThemeService {
 
   getAll(id: string | null): Observable<any> {
     let url = this.urlApi + id;
-    console.log(url);
+    // console.log(url);
     return this.http.get(url);
   }
 }

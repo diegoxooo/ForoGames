@@ -24,7 +24,7 @@ export class LogeadoService implements OnInit {
   }
 
   comprobar() {
-    if (sessionStorage.getItem('usuario') != null) {
+    if (sessionStorage.getItem('token') != null) {
       this.logeado = true;
     } else {
       this.logeado = false;

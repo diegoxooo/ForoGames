@@ -15,7 +15,7 @@ export class LoginFormComponent implements OnInit {
     usuario: [null, Validators.required],
     contrasena: [null, Validators.required],
   });
-
+  hide = true;
   public isLog = false;
 
   private urlApi = 'http://localhost:8080/log/login';
@@ -38,10 +38,9 @@ export class LoginFormComponent implements OnInit {
         (token) => {
           sessionStorage.setItem('token', JSON.stringify(token));
           this.login.logeado = true;
-          // this.isLog = true;
-          console.log(token.idUsuario);
+          this.isLog = true;
           this.login.setUsuario(token.idUsuario);
-          this.route.navigate(['/' + token.idUsuario]);
+          this.route.navigate(['/']);
         },
         (error) => this.onError(error)
       );

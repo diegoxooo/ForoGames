@@ -12,6 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SesionComponent } from './sesion/sesion.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [LoginFormComponent, RegisterFormComponent, SesionComponent],
@@ -25,6 +27,10 @@ import { SesionComponent } from './sesion/sesion.component';
     MatCardModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatFormFieldModule, 
+    MatInputModule,
+    MatButtonModule, 
+    MatIconModule
   ],
 })
 export class LoginModule {}

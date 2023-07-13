@@ -66,6 +66,7 @@ export class CrearTemaComponent {
         idJuegos: this.themeForm.value.idJuegos,
       })
       .subscribe(() => {
+        // console.log(sessionStorage.getItem('token'));
         this.route.navigate(['/']);
       });
   }

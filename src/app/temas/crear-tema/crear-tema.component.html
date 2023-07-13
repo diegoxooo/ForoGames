@@ -7,9 +7,9 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Tema" formControlName="tema">
+            <input matInput placeholder="Tema*" formControlName="tema">
             <mat-error *ngIf="themeForm.controls['tema'].hasError('required')">
-              Tema is <strong>required</strong>
+              Por favor, rellena el tema
             </mat-error>
           </mat-form-field>
         </div>
@@ -17,9 +17,9 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Comentario" formControlName="comentario">
+            <input matInput placeholder="Comentario*" formControlName="comentario">
             <mat-error *ngIf="themeForm.controls['comentario'].hasError('required')">
-              Comentario is <strong>required</strong>
+              Por favor, rellena el comentario
             </mat-error>
           </mat-form-field>
         </div>
@@ -34,7 +34,7 @@
               </mat-option>
             </mat-select>
             <mat-error *ngIf="themeForm.controls['idJuegos'].hasError('required')">
-              Videojuego is <strong>required</strong>
+              Por favor, selecciona un videojuego
             </mat-error>
           </mat-form-field>
         </div>
@@ -42,6 +42,7 @@
     </mat-card-content>
     <mat-card-actions class="centrado">
       <button mat-raised-button color="primary" type="submit">Crear</button>
+      <button mat-raised-button color="basic" type="button" onclick="location.href='/'" style="margin-left: auto;">Cancelar</button>
     </mat-card-actions>
   </mat-card>
 </form>

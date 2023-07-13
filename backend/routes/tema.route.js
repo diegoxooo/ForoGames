@@ -1,6 +1,7 @@
 const express = require('express');
 const temaRoute = express.Router();
 const Theme = require('../models/tema');
+const Coment = require('../models/comentario');
 // const User = require('../models/usuario');
 
 temaRoute.post('/tema/:id', async (req, res) => {
@@ -9,13 +10,10 @@ temaRoute.post('/tema/:id', async (req, res) => {
     console.log(req.body.idJuegos)
     console.log(req.params.id)
     console.log(req.body.comentario)
-    let temaEnIngles = JSON.stringify(req.body.tema);
-    let coment = req.body.comentario;
-    let idJuegos = req.body.idJuegos;
-    let id = req.params.id;
+
     const tema = await Theme.insertTema(req.body);
     const theme = await Theme.getByTema(req.body.tema);
-    const comentario = await Theme.insertComentario(req.body.comentario, theme.idTema, req.params.id);
+    const comentario = await Coment.insertComentario(req.body.comentario, theme.idTema, req.params.id);
 
     res.json({tema, comentario});
 });

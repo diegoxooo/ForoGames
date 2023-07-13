@@ -14,7 +14,7 @@ export class RegisterFormComponent implements OnInit {
     email: ['', Validators.required, Validators.email],
     contrasena: ['', Validators.required],
   });
-
+  hide = true;
   private urlApi = 'http://localhost:8080/log/register';
 
   constructor(

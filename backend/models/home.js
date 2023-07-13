@@ -9,9 +9,9 @@ const getAll = () => {
     });
 }
 
-const getJuego = (idJuegos) => {
+const getTema = (idTema) => {
     return new Promise((resolve, reject) => {
-        db.query("SELECT juego FROM juegos WHERE idJuegos = ?", [idJuegos], (err, result) => {
+        db.query("SELECT * FROM temas WHERE idTema = ?", [idTema], (err, result) => {
             if (err) reject(err);
             if (result) resolve(result);
         })
@@ -19,5 +19,6 @@ const getJuego = (idJuegos) => {
 }
 
 module.exports = {
-    getAll: getAll
+    getAll: getAll,
+    getTema: getTema
 }

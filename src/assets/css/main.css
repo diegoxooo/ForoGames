@@ -9,9 +9,18 @@ mat-toolbar .opcion_menu a {
   padding-right: 5px;
   height: 30px !important;
   font-size: 20px !important;
+  
+}
+
+mat-toolbar .opcion_menu a span {
+  color: white;
 }
 
 mat-toolbar .opcion_menu:hover { /*cambiar lo de dentro para dar forma a boton*/
   width: 80%;
   transition: 0.5s;
+}
+
+.mat-toolbar{
+  background-color: black;
 }
