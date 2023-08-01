@@ -17,7 +17,8 @@
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
-  <form [formGroup]="temaForm" novalidate (ngSubmit)="onSubmit()">
+  <div *ngIf="this.token != null;"> <!--cambiar login.comprobar por token -->
+  <form [formGroup]="temaForm" novalidate (ngSubmit)="onSubmit()" >
     <mat-form-field class="full-width" appearance="fill">
       <mat-label>Añade un comentario</mat-label>
       <textarea matInput rows="5" formControlName="comentario"></textarea>
@@ -29,5 +30,5 @@
       <button mat-raised-button color="primary" type="submit">Añadir comentario</button>
     </mat-card-actions>
   </form>
-
+</div>
 </div>

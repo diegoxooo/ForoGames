@@ -2,16 +2,21 @@ const db = require("../db/db");
 
 const getAll = () => {
     return new Promise((resolve, reject) => {
-        db.query("SELECT t.idTema, t.tema, j.juego FROM temas t JOIN juegos j USING (idJuegos)", (err, result) => {
+        db.query("SELECT t.idTema, t.tema, j.idJuegos, j.juego FROM temas t JOIN juegos j USING (idJuegos) ORDER BY idTema DESC", (err, result) => {
             if (err) reject(err);
             resolve(result);
         });
     });
 }
 
-const getTema = (idTema) => {
+const getFiltro = (tema=null) => {
     return new Promise((resolve, reject) => {
-        db.query("SELECT * FROM temas WHERE idTema = ?", [idTema], (err, result) => {
+        let query = "SELECT * FROM temas t JOIN juegos j USING (idJuegos) ";
+        if(tema!=null){
+            query+=" WHERE tema LIKE '%" + tema + "%' ";
+        }
+
+        db.query(query, (err, result) => {
             if (err) reject(err);
             if (result) resolve(result);
         })
@@ -20,5 +25,5 @@ const getTema = (idTema) => {
 
 module.exports = {
     getAll: getAll,
-    getTema: getTema
+    getFiltro: getFiltro
 }

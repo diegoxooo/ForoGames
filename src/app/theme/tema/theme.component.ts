@@ -4,6 +4,7 @@ import { ThemeService } from '../theme.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { LogeadoService } from '../../logeado.service';
 
 @Component({
   selector: 'app-theme',
@@ -12,10 +13,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ThemeComponent {
   public listaItems: Comentario[];
-  public idUsuario = sessionStorage.getItem('usuario');
-  
+  private idUsuario = sessionStorage.getItem('usuario');
+  public token = sessionStorage.getItem('token');
+
   temaForm = this.fb.group({
-    comentario: [null, Validators.required],
+    comentario: [null],
     usuario: [this.idUsuario]
   });
 
@@ -26,6 +28,7 @@ private urlApi = 'http://localhost:8080/tema/';
     private service: ThemeService,
     private route: ActivatedRoute,
     private router: Router,
+    public login: LogeadoService
   ) {
     
     

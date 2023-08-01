@@ -8,4 +8,10 @@ homeRouter.get('/', async (req, res) => {
     res.json(todo);
 });
 
+homeRouter.post('/', async (req, res) => {
+    const filtro = await Home.getFiltro(req.body.tema, req.body.juego);
+console.log(filtro);
+    res.json(filtro);
+});
+
 module.exports = homeRouter;

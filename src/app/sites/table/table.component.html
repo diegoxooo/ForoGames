@@ -1,18 +1,19 @@
 <div class="mat-elevation-z8">
+
+  <form [formGroup]="filterForm" novalidate (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" class="full-width">
+      <input matInput type="search" placeholder="Tema" formControlName="tema">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" class="full-width-button">Filtrar</button>
+  </form>
+
   <table mat-table class="full-width-table" matSort aria-label="Elements">
     <!-- Tema Column -->
     <ng-container matColumnDef="tema">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Tema</th>
       <td mat-cell *matCellDef="let row"><a [routerLink]="['/tema', row.idTema]">{{row.tema}}</a></td>
     </ng-container>
-
-    <!-- Name Column
-    
-     <ng-container matColumnDef="comentario">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Comentario</th>
-      <td mat-cell *matCellDef="let row">{{row.comentario}}</td>
-    </ng-container> -->
-
     <!-- Juego Column -->
     <ng-container matColumnDef="juego">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Juego</th>

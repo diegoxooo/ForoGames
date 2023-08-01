@@ -22,25 +22,3 @@ module.exports = {
     insert: insert,
     getByUser: getByUser
 }
-
-// 'use strict';
-// const {
-//     Model
-// } = require('sequelize');
-// module.exports = (sequelize, DataTypes) => {
-//     class Usuario extends Model {
-//         static associate(models) {
-//         }
-//     };
-//     Usuario.init({
-//         email: DataTypes.STRING,
-//         usuario: DataTypes.STRING,
-//         contrasena: DataTypes.STRING
-//     }, {
-//         sequelize,
-//         timestamps: false,
-//         modelName: 'Usuario',
-//         tableName: "usuarios"
-//     });
-//     return Usuario;
-// };

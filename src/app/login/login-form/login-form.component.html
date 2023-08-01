@@ -8,9 +8,6 @@
         <div class="col">
           <mat-form-field class="full-width">
             <input matInput placeholder="Usuario" formControlName="usuario">
-            <mat-error *ngIf="loginForm.controls['usuario'].hasError('required')">
-              Usuario is <strong>required</strong>
-            </mat-error>
           </mat-form-field>
         </div>
       </div>
@@ -21,9 +18,6 @@
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
-            <mat-error *ngIf="loginForm.controls['contrasena'].hasError('required')">
-              Contraseña is <strong>required</strong>
-            </mat-error>
           </mat-form-field>
         </div>
       </div>
