@@ -16,11 +16,11 @@ mat-toolbar .opcion_menu a span {
   color: white;
 }
 
-mat-toolbar .opcion_menu:hover { /*cambiar lo de dentro para dar forma a boton*/
+mat-toolbar .opcion_menu:hover a span { /*cambiar lo de dentro para dar forma a boton*/
   width: 80%;
-  transition: 0.5s;
+  /* transition: 0.5s; */
+  border-radius: 10%;
+  background-color: white;
 }
 
-.mat-toolbar{
-  background-color: black;
-}
+
