@@ -18,7 +18,7 @@ export class LoginFormComponent implements OnInit {
   hide = true;
   public isLog = false;
 
-  private urlApi = 'http://localhost:8080/log/login';
+  private urlApi = 'http://192.168.1.65:8080/log/login';
 
   constructor(
     private fb: FormBuilder,

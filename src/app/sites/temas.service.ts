@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class TemasService {
-  private urlBase = 'http://localhost:8080/';
+  private urlBase = 'http://192.168.1.65:8080/';
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<any> {

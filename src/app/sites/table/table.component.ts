@@ -26,7 +26,7 @@ export class TableComponent implements AfterViewInit {
     tema: [null],
   });
 
-  private urlBase = 'http://localhost:8080/';
+  private urlBase = 'http://192.168.1.65:8080/';
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['tema', 'juego'];

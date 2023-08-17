@@ -3,8 +3,13 @@
 }
 
 .full-width{
-  width: 80%;
+  /* width: 20%; */
   margin: 1rem 1.5rem 0 1.5rem;
+  /* background-color: #; */
+}
+
+form {
+  /* background-color: #2f2e2e; */
 }
 
 .full-width-button{

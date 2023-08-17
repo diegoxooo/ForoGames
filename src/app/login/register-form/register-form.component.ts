@@ -15,7 +15,7 @@ export class RegisterFormComponent implements OnInit {
     contrasena: ['', Validators.required],
   });
   hide = true;
-  private urlApi = 'http://localhost:8080/log/register';
+  private urlApi = 'http://192.168.1.65:8080/log/register';
 
   constructor(
     private fb: FormBuilder,

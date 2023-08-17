@@ -21,7 +21,7 @@ export class ThemeComponent {
     usuario: [this.idUsuario]
   });
 
-private urlApi = 'http://localhost:8080/tema/';
+private urlApi = 'http://192.168.1.65:8080/tema/';
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,

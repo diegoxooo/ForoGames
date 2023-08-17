@@ -17,7 +17,7 @@ export class CrearTemaComponent {
     idJuegos: [null, Validators.required],
   });
 
-  private urlApi = 'http://localhost:8080/temas/tema/';
+  private urlApi = 'http://192.168.1.65:8080/temas/tema/';
 
   constructor(
     private fb: FormBuilder,

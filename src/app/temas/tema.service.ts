@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class TemaService {
 
-private url = 'http://localhost:4000/temas/tema';
+private url = 'http://192.168.1.65:4000/temas/tema';
 
 constructor(private http: HttpClient) { }
 

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ThemeService {
-  private urlApi = 'http://localhost:8080/tema/';
+  private urlApi = 'http://192.168.1.65:8080/tema/';
   constructor(private http: HttpClient) {}
 
   getAll(id: string | null): Observable<any> {
