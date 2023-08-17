@@ -5,13 +5,25 @@
 .shipping-card {
   position: absolute;
   top: 40%;
-  right: 50%;
+  left: 25px;
   width: 350px;
   margin-right: -250px;
   height: 270px;
   margin-top: -125px;
   border-radius: 20px;
-  
+}
+
+@media (min-width: 768px){
+  .shipping-card {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    width: 350px;
+    margin-right: -250px;
+    height: 270px;
+    margin-top: -125px;
+    border-radius: 20px;
+  }
 }
 
 .mat-radio-button {
@@ -37,3 +49,4 @@
   text-align: center;
   width: 100%;
 }
+
