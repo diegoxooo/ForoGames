@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AppComponent } from '../app.component';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ThemeService {
-  private urlApi = 'http://192.168.1.65:8080/tema/';
+  private urlApi = AppComponent.url + 'tema/';
   constructor(private http: HttpClient) {}
 
   getAll(id: string | null): Observable<any> {

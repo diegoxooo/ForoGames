@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-crear-tema',
@@ -17,7 +18,7 @@ export class CrearTemaComponent {
     idJuegos: [null, Validators.required],
   });
 
-  private urlApi = 'http://192.168.1.65:8080/temas/tema/';
+  private urlApi = AppComponent.url + 'temas/tema/';
 
   constructor(
     private fb: FormBuilder,

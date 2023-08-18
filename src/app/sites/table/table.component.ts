@@ -4,7 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { Tema } from 'src/app/models/Tema';
-import { TemasService } from '../temas.service';
+import { AppComponent } from '../../app.component';
 import { TableDataSource } from './table-datasource';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -26,7 +26,7 @@ export class TableComponent implements AfterViewInit {
     tema: [null],
   });
 
-  private urlBase = 'http://192.168.1.65:8080/';
+  private urlBase = AppComponent.url;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['tema', 'juego'];

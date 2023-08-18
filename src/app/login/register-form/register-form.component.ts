@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-register-form',
@@ -15,7 +16,7 @@ export class RegisterFormComponent implements OnInit {
     contrasena: ['', Validators.required],
   });
   hide = true;
-  private urlApi = 'http://192.168.1.65:8080/log/register';
+  private urlApi = AppComponent.url + 'log/register';
 
   constructor(
     private fb: FormBuilder,

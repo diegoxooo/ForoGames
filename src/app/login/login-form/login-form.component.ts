@@ -5,6 +5,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LogeadoService } from 'src/app/logeado.service';
 
+import { AppComponent } from '../../app.component';
+
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -18,7 +20,7 @@ export class LoginFormComponent implements OnInit {
   hide = true;
   public isLog = false;
 
-  private urlApi = 'http://192.168.1.65:8080/log/login';
+  private urlApi = AppComponent.url + 'log/login';
 
   constructor(
     private fb: FormBuilder,

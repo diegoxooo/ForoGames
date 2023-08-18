@@ -5,6 +5,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { LogeadoService } from '../../logeado.service';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-theme',
@@ -21,7 +22,7 @@ export class ThemeComponent {
     usuario: [this.idUsuario]
   });
 
-private urlApi = 'http://192.168.1.65:8080/tema/';
+private urlApi = AppComponent.url + 'tema/';
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
