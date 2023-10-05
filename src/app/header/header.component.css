@@ -26,12 +26,19 @@ img {
 
 .listToolbar {
   display: inline-flex;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.listToolbarNolog {
+  display: inline-flex;
   margin-left: 50%;
 }
 
 .opcion_menu {
   border-radius: 10px;
   text-align: center;
+  margin: 0 10px;
 }
 
 .sidenav {
@@ -68,7 +75,7 @@ img {
 }
 
 @media (max-width: 767px) {
-  .listToolbar {
+  .listToolbar,.usuario {
     visibility: hidden;
   }
   .menuResponsive {
@@ -98,6 +105,7 @@ img {
 }
 @media (min-width: 768px) and (max-width: 1500px) {
   .listToolbar {
-    margin-left: 50%;
+    margin-left: 15%;
+    margin-right: 15%;
   }
 }

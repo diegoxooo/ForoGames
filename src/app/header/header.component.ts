@@ -3,6 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { LogeadoService } from '../logeado.service';
+import { bootstrapApplication } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-header',

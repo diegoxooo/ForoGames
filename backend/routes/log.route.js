@@ -26,7 +26,9 @@ logRoute.post('/login', async (req, res) => {
             res.json({
                 succesfull: createToken(user),
                 done: "Login correct",
-                idUsuario: user.idUsuario
+                idUsuario: user.idUsuario,
+                userName: user.usuario,
+                userMail: user.email // Puede que innecesario
             });
         }
     }

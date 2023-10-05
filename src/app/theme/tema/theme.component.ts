@@ -47,7 +47,7 @@ private urlApi = AppComponent.url + 'tema/';
         usuario: this.temaForm.value.usuario
       })
       .subscribe(() => {
-        this.router.navigate([`tema/${id}`]);
+        this.router.navigate([`tema/${id}`]); // algo no va
       });
   }
 

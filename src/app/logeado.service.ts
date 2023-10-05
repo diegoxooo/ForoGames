@@ -7,10 +7,12 @@ import { Injectable, OnInit } from '@angular/core';
 export class LogeadoService implements OnInit {
   public logeado: boolean;
   public usuario: number;
+  public userName: string;
 
   constructor(private http: HttpClient) {
     this.logeado = false;
     this.usuario = 0;
+    this.userName = "";
   }
   ngOnInit(): void {}
 
@@ -21,6 +23,16 @@ export class LogeadoService implements OnInit {
 
   getUsuario() {
     return sessionStorage.getItem('usuario');
+  }
+
+  setName(name: string){
+    this.userName = name;
+    
+    sessionStorage.setItem('userName', this.userName.toString());
+  }
+
+  getName(){
+    return sessionStorage.getItem('userName');
   }
 
   comprobar() {

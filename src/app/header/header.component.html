@@ -16,8 +16,11 @@
       <div class="menuResponsive">
         <mat-toolbar>Menu</mat-toolbar>
         <mat-nav-list>
+          <a mat-list-item [routerLink]="[]">Añadir Juego</a>
           <div class="barra"></div>
           <a mat-list-item [routerLink]="['temas/tema/', login.getUsuario()]">Crear Tema</a>
+          <div class="barra"></div>
+          <a mat-list-item [routerLink]="[]">Modificar Usuario</a>
           <div class="barra"></div>
           <a mat-list-item [routerLink]="['log/sesion']">Cerrar Sesión</a>
           <div class="barra"></div>
@@ -36,7 +39,7 @@
       <div class="logo">
         <a [routerLink]="['']"><img src="assets/logo/logo.png" /></a>
       </div>
-      <div class="listToolbar" *ngIf="login.comprobar()==false; else noLogeado">
+      <div class="listToolbarNolog" *ngIf="login.comprobar()==false; else noLogeado">
         <mat-nav-list>
           <div class="opcion_menu">
             <a mat-list-item [routerLink]="['log/login']">Iniciar Sesión</a>
@@ -50,12 +53,31 @@
         <div class="listToolbar">
           <mat-nav-list>
             <div class="opcion_menu">
+              <a mat-list-item [routerLink]="[]">Añadir Juego</a>
+            </div>
+            <div class="opcion_menu">
               <a mat-list-item [routerLink]="['temas/tema/', login.getUsuario()]">Crear Tema</a>
             </div>
             <div class="opcion_menu">
-              <a mat-list-item [routerLink]="['log/sesion']">Cerrar Sesión</a>
+              <a mat-list-item [routerLink]="[]"></a>
+            </div>
+            <div class="opcion_menu">
+              
             </div>
           </mat-nav-list>
+        </div>
+        <div class="usuario">
+          <!-- {{login.getName()}} -->
+          <div class="dropdown text-small">
+            <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              {{login.getName()}}
+            </a>
+            <ul class="dropdown-menu text-small">
+              <li><a mat-list-item class="dropdown-item" [routerLink]="['usuario']">Modificar Usuario</a></li>
+              <li><a mat-list-item class="dropdown-item" [routerLink]="['log/sesion']">Cerrar Sesión</a></li>
+            </ul>
+          </div>
+          
         </div>
       </ng-template>
     </mat-toolbar>

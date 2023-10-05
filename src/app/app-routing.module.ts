@@ -9,11 +9,6 @@ const routes: Routes = [
       import('./sites/sites.module').then((m) => m.SitesModule),
   },
   {
-    path: ':id',
-    loadChildren: () =>
-      import('./sites/sites.module').then((m) => m.SitesModule),
-  },
-  {
     path: 'log',
     loadChildren: () =>
       import('./login/login.module').then((m) => m.LoginModule),
@@ -27,6 +22,11 @@ const routes: Routes = [
     path: 'tema/:id',
     loadChildren: () =>
       import('./theme/theme.module').then((m) => m.ThemeModule),
+  },
+  {
+    path: 'usuario',
+    loadChildren: () =>
+      import('./user/user.module').then((m) => m.UserModule),
   },
   {
     path: '**',
