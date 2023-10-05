@@ -8,7 +8,7 @@ Para poder instalar el proyecto debes contar con `NodeJs` y usar el comando `npm
 
 ## Iniciar aplicación
 
-Usa `npm start` desde el directorio de index. Navega a `http://localhost:4200/` para ver la aplicación.
+Usa `npm start` desde el directorio de index. Navega a `http://localhost:4200/` para ver la aplicación. También accede a la carpeta de backend y usa `npm start server.js`.
 
 ## Configuración de Ip
 
