@@ -1,5 +1,14 @@
 const db = require("../db/db");
 
+const postJuego = (juego) => {
+    return new Promise((resolve, reject) => {
+        db.query("INSERT INTO juegos (juego) VALUES (?)", [juego], (err, result) => {
+            if (err) reject(err);
+            resolve(result);
+        });
+    });
+}
+
 const getJuegos = () => {
     return new Promise((resolve, reject) => {
         db.query("SELECT * FROM juegos", (err, result) => {
@@ -20,5 +29,6 @@ const getTemaByJuego = (idJuego) => {
 
 module.exports = {
     getJuegos: getJuegos,
-    getTemaByJuego: getTemaByJuego
+    getTemaByJuego: getTemaByJuego,
+    postJuego: postJuego
 }

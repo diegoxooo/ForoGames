@@ -8,11 +8,13 @@ export class LogeadoService implements OnInit {
   public logeado: boolean;
   public usuario: number;
   public userName: string;
+  public admin:number;
 
   constructor(private http: HttpClient) {
     this.logeado = false;
     this.usuario = 0;
     this.userName = "";
+    this.admin = 0;
   }
   ngOnInit(): void {}
 
@@ -33,6 +35,16 @@ export class LogeadoService implements OnInit {
 
   getName(){
     return sessionStorage.getItem('userName');
+  }
+
+  setAdmin(adm: number){
+    this.admin = adm;
+    
+    sessionStorage.setItem('admin', this.admin.toString());
+  }
+
+  getAdmin(){
+    return sessionStorage.getItem('admin');
   }
 
   comprobar() {

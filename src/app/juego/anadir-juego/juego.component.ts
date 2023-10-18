@@ -10,15 +10,12 @@ import { AppComponent } from '../../app.component';
   styleUrls: ['./juego.component.css'],
 })
 export class JuegoComponent {
-  @Input() juegos: any[];
 
-  themeForm = this.fb.group({
-    tema: [null, Validators.required],
-    comentario: [null, Validators.required],
-    idJuegos: [null, Validators.required],
+  gameForm = this.fb.group({
+    juego: [null, Validators.required]
   });
 
-  private urlApi = AppComponent.url + 'temas/tema/';
+  private urlApi = AppComponent.url + 'juego';
 
   constructor(
     private fb: FormBuilder,
@@ -26,45 +23,15 @@ export class JuegoComponent {
     private route: Router,
     private ar: ActivatedRoute
   ) {
-    this.juegos = [
-      {
-        id: 1,
-        juego: 'God of War',
-      },
-      {
-        id: 2,
-        juego: 'Call of Duty',
-      },
-      {
-        id: 3,
-        juego: 'Dark Souls',
-      },
-      {
-        id: 4,
-        juego: 'Pokémon',
-      },
-      {
-        id: 5,
-        juego: 'Halo',
-      },
-      {
-        id: 6,
-        juego: 'The Legend of Zelda',
-      },
-      {
-        id: 7,
-        juego: 'Bloodborne',
-      },
-    ];
+    
   }
 
   onSubmit(): void {
     let id = this.ar.snapshot.paramMap.get('id');
     this.http
       .post<any>(this.urlApi + id, {
-        tema: this.themeForm.value.tema,
-        comentario: this.themeForm.value.comentario,
-        idJuegos: this.themeForm.value.idJuegos,
+        juego: this.gameForm.value.juego,
+        
       })
       .subscribe(() => {
         // console.log(sessionStorage.getItem('token'));

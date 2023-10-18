@@ -4,11 +4,11 @@
 
 .shipping-card {
   position: absolute;
-  top: 40%;
+  top: 50%;
   right: 50%;
   width: 350px;
-  margin-right: -250px;
-  height: 280px;
+  margin-right: -200px;
+  height: 130px;
   margin-top: -125px;
   border-radius: 20px;
   

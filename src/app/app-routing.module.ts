@@ -29,6 +29,11 @@ const routes: Routes = [
       import('./user/user.module').then((m) => m.UserModule),
   },
   {
+    path: 'juego',
+    loadChildren: () =>
+      import('./juego/juego.module').then((m) => m.JuegoModule),
+  },
+  {
     path: '**',
     component: ErrorComponent
   }

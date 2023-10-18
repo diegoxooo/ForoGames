@@ -28,7 +28,8 @@ logRoute.post('/login', async (req, res) => {
                 done: "Login correct",
                 idUsuario: user.idUsuario,
                 userName: user.usuario,
-                userMail: user.email // Puede que innecesario
+                userMail: user.email, // Puede que innecesario
+                admin: user.admin
             });
         }
     }

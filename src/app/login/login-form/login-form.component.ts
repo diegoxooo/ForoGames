@@ -43,6 +43,8 @@ export class LoginFormComponent implements OnInit {
           this.isLog = true;
           this.login.setUsuario(token.idUsuario);
           this.login.setName(token.userName);
+          this.login.setAdmin(token.admin);
+          
           this.route.navigate(['/']);
         },
         (error) => this.onError(error)
