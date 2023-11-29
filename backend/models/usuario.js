@@ -9,9 +9,18 @@ const insert = ({ email, usuario, contrasena }) => {
     });
 }
 
-const getByUser = (usuario) => {
+const modificar = ({ usuario, contrasena, email }) => {
     return new Promise((resolve, reject) => {
-        db.query("SELECT * FROM usuarios WHERE usuario = ?", [usuario], (err, rows) => {
+        db.query("UPDATE usuarios SET usuario = ?, contra = ? WHERE email = ?", [usuario, contrasena, email], (err, result) => {
+            if(err) reject(err);
+            if (result) { resolve(result); }
+        });
+    });
+}
+
+const getByMail = (email) => {
+    return new Promise((resolve, reject) => {
+        db.query("SELECT * FROM usuarios WHERE email = ?", [email], (err, rows) => {
             if (err) reject(err);
             resolve(rows[0]);
         });
@@ -20,5 +29,6 @@ const getByUser = (usuario) => {
 
 module.exports = {
     insert: insert,
-    getByUser: getByUser
+    modificar: modificar,
+    getByMail: getByMail
 }

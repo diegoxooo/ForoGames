@@ -38,7 +38,7 @@ export class TableComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.refreshData();
-  }
+  } 
 
   refreshData() {
     this.http.get<any>(this.urlBase).subscribe((data) => {

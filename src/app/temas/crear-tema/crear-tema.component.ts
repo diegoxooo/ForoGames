@@ -14,7 +14,7 @@ export class CrearTemaComponent {
 
   themeForm = this.fb.group({
     tema: [null, Validators.required],
-    comentario: [null, Validators.required],
+    comentario: [null],
     idJuegos: [null, Validators.required],
   });
 
@@ -26,36 +26,45 @@ export class CrearTemaComponent {
     private route: Router,
     private ar: ActivatedRoute
   ) {
-    this.juegos = [
-      {
-        id: 1,
-        juego: 'God of War',
-      },
-      {
-        id: 2,
-        juego: 'Call of Duty',
-      },
-      {
-        id: 3,
-        juego: 'Dark Souls',
-      },
-      {
-        id: 4,
-        juego: 'Pokémon',
-      },
-      {
-        id: 5,
-        juego: 'Halo',
-      },
-      {
-        id: 6,
-        juego: 'The Legend of Zelda',
-      },
-      {
-        id: 7,
-        juego: 'Bloodborne',
-      },
-    ];
+    this.juegos = [];
+    // this.juegos = [
+    //   {
+    //     id: 1,
+    //     juego: 'God of War',
+    //   },
+    //   {
+    //     id: 2,
+    //     juego: 'Call of Duty',
+    //   },
+    //   {
+    //     id: 3,
+    //     juego: 'Dark Souls',
+    //   },
+    //   {
+    //     id: 4,
+    //     juego: 'Pokémon',
+    //   },
+    //   {
+    //     id: 5,
+    //     juego: 'Halo',
+    //   },
+    //   {
+    //     id: 6,
+    //     juego: 'The Legend of Zelda',
+    //   },
+    //   {
+    //     id: 7,
+    //     juego: 'Bloodborne',
+    //   },
+    // ];
+  }
+
+  ngAfterViewInit(): void{
+    let id = this.ar.snapshot.paramMap.get('id');
+    this.http
+      .get<any>(this.urlApi + id).subscribe((data) => {
+        this.juegos = data;
+      })
   }
 
   onSubmit(): void {

@@ -10,6 +10,8 @@ const logRoute = require('./routes/log.route');
 const temaRoute = require('./routes/tema.route');
 const themeRoute = require('./routes/theme.route');
 const gameRoute = require('./routes/juegos.route');
+const userRoute = require('./routes/usuario.route');
+const respuestaRoute = require('./routes/respuesta.route');
 
 // const app = express();
 
@@ -21,6 +23,8 @@ app.use("/log", logRoute);
 app.use('/temas', temaRoute);
 app.use('/tema', themeRoute);
 app.use('/juego', gameRoute);
+app.use('/usuario', userRoute);
+app.use('/respuesta', respuestaRoute);
 
 // app.get("/", (req, res) => {
 //     console.log("Estamos en root");

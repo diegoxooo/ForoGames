@@ -13,7 +13,7 @@ logRoute.post('/register', async (req, res) => {
 });
 
 logRoute.post('/login', async (req, res) => {
-    const user = await Users.getByUser(req.body.usuario);
+    const user = await Users.getByMail(req.body.email);
     if (user === undefined) {
         res.json({
             error: "Error usuario o contraseña no encontrados"

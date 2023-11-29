@@ -13,7 +13,7 @@ export class RegisterFormComponent implements OnInit {
   registerForm = this.fb.group({
     usuario: ['', Validators.required],
     email: ['', Validators.required, Validators.email],
-    contrasena: ['', Validators.required],
+    contrasena: ['', Validators.required, Validators.maxLength(8), Validators.pattern('[a-zA-Z0-9 ]*')],
   });
   hide = true;
   private urlApi = AppComponent.url + 'log/register';

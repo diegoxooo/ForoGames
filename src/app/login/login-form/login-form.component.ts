@@ -14,7 +14,7 @@ import { AppComponent } from '../../app.component';
 })
 export class LoginFormComponent implements OnInit {
   loginForm = this.fb.group({
-    usuario: [null, Validators.required],
+    email: [null, Validators.required],
     contrasena: [null, Validators.required],
   });
   hide = true;
@@ -33,7 +33,7 @@ export class LoginFormComponent implements OnInit {
   onSubmit(): void {
     this.http
       .post<any>(this.urlApi, {
-        usuario: this.loginForm.value.usuario,
+        email: this.loginForm.value.email,
         contrasena: this.loginForm.value.contrasena,
       })
       .subscribe(
@@ -44,6 +44,7 @@ export class LoginFormComponent implements OnInit {
           this.login.setUsuario(token.idUsuario);
           this.login.setName(token.userName);
           this.login.setAdmin(token.admin);
+          this.login.setMail(token.userMail);
           
           this.route.navigate(['/']);
         },

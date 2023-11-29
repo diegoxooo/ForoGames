@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Tema*" formControlName="tema">
+            <input matInput placeholder="Tema*" formControlName="tema" required>
             <mat-error *ngIf="themeForm.controls['tema'].hasError('required')">
               Por favor, rellena el tema
             </mat-error>
@@ -17,10 +17,7 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Comentario*" formControlName="comentario">
-            <mat-error *ngIf="themeForm.controls['comentario'].hasError('required')">
-              Por favor, rellena el comentario
-            </mat-error>
+            <input matInput placeholder="Comentario" formControlName="comentario">
           </mat-form-field>
         </div>
       </div>
@@ -28,7 +25,7 @@
         <div class="col">
           <mat-form-field class="full-width">
             <mat-label>Selecciona un videojuego</mat-label>
-            <mat-select formControlName="idJuegos">
+            <mat-select formControlName="idJuegos" required>
               <mat-option *ngFor="let juego of juegos" value="{{juego.id}}">
                 {{juego.juego}}
               </mat-option>

@@ -15,7 +15,7 @@ export class JuegoComponent {
     juego: [null, Validators.required]
   });
 
-  private urlApi = AppComponent.url + 'juego';
+  private urlApi = AppComponent.url + 'juego/';
 
   constructor(
     private fb: FormBuilder,
@@ -27,9 +27,9 @@ export class JuegoComponent {
   }
 
   onSubmit(): void {
-    let id = this.ar.snapshot.paramMap.get('id');
+    
     this.http
-      .post<any>(this.urlApi + id, {
+      .post<any>(this.urlApi, {
         juego: this.gameForm.value.juego,
         
       })

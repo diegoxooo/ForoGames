@@ -3,6 +3,7 @@ import { Component, Input } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppComponent } from '../../app.component';
+import { LogeadoService } from '../../logeado.service';
 
 @Component({
   selector: 'app-user',
@@ -10,61 +11,33 @@ import { AppComponent } from '../../app.component';
   styleUrls: ['./user.component.css'],
 })
 export class UserComponent {
-  @Input() juegos: any[];
 
-  themeForm = this.fb.group({
-    tema: [null, Validators.required],
-    comentario: [null, Validators.required],
-    idJuegos: [null, Validators.required],
+  userForm = this.fb.group({
+    usuario: [null, Validators.required],
+    nvContra: [null, Validators.required],
+    antContra: [null, Validators.required],
   });
 
-  private urlApi = AppComponent.url + 'temas/tema/';
+  private urlApi = AppComponent.url + 'usuario/';
 
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
     private route: Router,
-    private ar: ActivatedRoute
+    private ar: ActivatedRoute,
+    private login: LogeadoService
   ) {
-    this.juegos = [
-      {
-        id: 1,
-        juego: 'God of War',
-      },
-      {
-        id: 2,
-        juego: 'Call of Duty',
-      },
-      {
-        id: 3,
-        juego: 'Dark Souls',
-      },
-      {
-        id: 4,
-        juego: 'Pokémon',
-      },
-      {
-        id: 5,
-        juego: 'Halo',
-      },
-      {
-        id: 6,
-        juego: 'The Legend of Zelda',
-      },
-      {
-        id: 7,
-        juego: 'Bloodborne',
-      },
-    ];
+   
   }
 
   onSubmit(): void {
-    let id = this.ar.snapshot.paramMap.get('id');
+
+    let mail = this.login.getMail();
     this.http
-      .post<any>(this.urlApi + id, {
-        tema: this.themeForm.value.tema,
-        comentario: this.themeForm.value.comentario,
-        idJuegos: this.themeForm.value.idJuegos,
+      .post<any>(this.urlApi + mail, {
+        usuario: this.userForm.value.usuario,
+        nvContra: this.userForm.value.nvContra,
+        antContra: this.userForm.value.antContra,
       })
       .subscribe(() => {
         // console.log(sessionStorage.getItem('token'));

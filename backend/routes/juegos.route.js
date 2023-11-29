@@ -6,3 +6,5 @@ gameRoute.post('/', async (req, res) => {
     const juego = await Game.postJuego(req.body.juego);
     res.json(juego);
 });
+
+module.exports = gameRoute;

@@ -20,4 +20,12 @@ themeRoute.post('/:id', async (req, res) => {
     res.json(coment);
 });
 
+
+
+themeRoute.delete('/:id', async (req, res) => {
+    let id = req.params.id;
+    const coment = await Coment.deleteComent(id);
+    res.json(coment);
+});
+
 module.exports = themeRoute;

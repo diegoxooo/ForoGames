@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Comentario } from 'src/app/models/Comentario';
 import { Respuesta } from 'src/app/models/Respuesta';
-import { ThemeService } from '../theme.service';
+import { RespuestasService } from '../respuestas.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -9,11 +9,11 @@ import { LogeadoService } from '../../logeado.service';
 import { AppComponent } from '../../app.component';
 
 @Component({
-  selector: 'app-theme',
-  templateUrl: './theme.component.html',
-  styleUrls: ['./theme.component.css'],
+  selector: 'app-respuestas',
+  templateUrl: './respuestas.component.html',
+  styleUrls: ['./respuestas.component.css'],
 })
-export class ThemeComponent {
+export class RespuestasComponent {
   public listaComents: any[];
   public listaResp: any[];
   public listaItems: any[] = [];
@@ -35,7 +35,7 @@ export class ThemeComponent {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private service: ThemeService,
+    private service: RespuestasService,
     private route: ActivatedRoute,
     private router: Router,
     public login: LogeadoService
@@ -81,29 +81,29 @@ export class ThemeComponent {
   }
 
   getItems(id: string | null): void {
-    this.service.getAll(id).subscribe((data) => { this.listaComents = data; });
+    this.service.getAll(id).subscribe((data) => { this.listaResp = data; });
 
-    this.http.get<any>(this.urlApi + 'respuesta/').subscribe((resp) => { 
-      this.listaResp = resp; console.log( this.listaResp);
-      this.listaItems = this.listaComents.map(
-        (com) => this.listaResp.map((res) => {
-          if(!this.listaItems[com.idComent]){
-            this.listaItems[com.idComent] = [];
-          }
-          if(res.idComent==com.idComent) {this.listaItems[com.idComent][res.id] = res}
-        })
-      );
-    });
-    console.log(this.listaItems);
+    // this.http.get<any>(this.urlApi + 'respuesta/').subscribe((resp) => { 
+    //   this.listaResp = resp; console.log( this.listaResp);
+    //   this.listaItems = this.listaComents.map(
+    //     (com) => this.listaResp.map((res) => {
+    //       if(!this.listaItems[com.idComent]){
+    //         this.listaItems[com.idComent] = [];
+    //       }
+    //       if(res.idComent==com.idComent) {this.listaItems[com.idComent][res.id] = res}
+    //     })
+    //   );
+    // });
+    // console.log(this.listaItems);
   }
 
-  getRespuesta(id: string | null): object{
-    this.http.get<any>(this.urlApi + 'respuesta/' + id).subscribe((resp) => {
-      this.listaResp = resp;
+  // getRespuesta(id: string | null): object{
+  //   this.http.get<any>(this.urlApi + 'respuesta/' + id).subscribe((resp) => {
+  //     this.listaResp = resp;
 
       
-    });
-    console.log(this.listaResp)
-    return this.listaResp;
-  }
+  //   });
+  //   console.log(this.listaResp)
+  //   return this.listaResp;
+  // }
 }

@@ -21,15 +21,6 @@
             <br/>
         </mat-card-header>
         <mat-card-content>
-            <!-- <div *ngFor="let items of listaItems">
-          <p *ngFor="let item of items[card.idComent]">
-                <p *ngFor="let res of item">
-                  {{ item[res.id].respuesta }}
-                </p>
-                {{item}}
-              </p>
-              {{items}}
-            </div> -->
             <div *ngIf="this.token != null;">
           <form [formGroup]="comentForm" novalidate>
             <div class="row">

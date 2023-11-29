@@ -9,12 +9,14 @@ export class LogeadoService implements OnInit {
   public usuario: number;
   public userName: string;
   public admin:number;
+  public mail: string; 
 
   constructor(private http: HttpClient) {
     this.logeado = false;
     this.usuario = 0;
     this.userName = "";
     this.admin = 0;
+    this.mail = "";
   }
   ngOnInit(): void {}
 
@@ -25,6 +27,15 @@ export class LogeadoService implements OnInit {
 
   getUsuario() {
     return sessionStorage.getItem('usuario');
+  }
+
+  setMail(id: number) {
+    this.usuario = id;
+    sessionStorage.setItem('userMail', this.usuario.toString());
+  }
+
+  getMail() {
+    return sessionStorage.getItem('userMail');
   }
 
   setName(name: string){
