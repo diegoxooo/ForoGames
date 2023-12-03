@@ -15,13 +15,13 @@
           </div>
           </mat-card-title>
           <mat-card-subtitle> <!-- Otra forma de mostrarlo -->
-                {{card.comentario}}
-                <mat-icon *ngIf="this.token != null;" style="cursor: pointer; float: right">edit</mat-icon>
+            <a [routerLink]="['/comentario', card.idComent]">{{card.comentario}}</a>
+                <!-- <mat-icon *ngIf="this.token != null;" style="cursor: pointer; float: right">edit</mat-icon> -->
             </mat-card-subtitle> 
             <br/>
         </mat-card-header>
-        <mat-card-content>
-            <!-- <div *ngFor="let items of listaItems">
+        <!-- <mat-card-content>
+           <div *ngFor="let items of listaItems">
           <p *ngFor="let item of items[card.idComent]">
                 <p *ngFor="let res of item">
                   {{ item[res.id].respuesta }}
@@ -29,7 +29,7 @@
                 {{item}}
               </p>
               {{items}}
-            </div> -->
+            </div>
             <div *ngIf="this.token != null;">
           <form [formGroup]="comentForm" novalidate>
             <div class="row">
@@ -47,7 +47,7 @@
         </div>
           </form> 
         </div>
-        </mat-card-content>
+        </mat-card-content> -->
         
       </mat-card>
     </mat-grid-tile>

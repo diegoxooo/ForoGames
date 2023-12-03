@@ -27,8 +27,18 @@ const getByMail = (email) => {
     });
 }
 
+const getById = (id) => {
+    return new Promise((resolve, reject) => {
+        db.query("SELECT * FROM usuarios WHERE idUsuario = ?", [id], (err, rows) => {
+            if (err) reject(err);
+            resolve(rows[0]);
+        });
+    });
+}
+
 module.exports = {
     insert: insert,
     modificar: modificar,
-    getByMail: getByMail
+    getByMail: getByMail,
+    getById: getById
 }

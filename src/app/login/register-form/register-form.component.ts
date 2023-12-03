@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppComponent } from '../../app.component';
+import { LogeadoService } from 'src/app/logeado.service';
 
 @Component({
   selector: 'app-register-form',
@@ -16,12 +17,14 @@ export class RegisterFormComponent implements OnInit {
     contrasena: ['', Validators.required, Validators.maxLength(8), Validators.pattern('[a-zA-Z0-9 ]*')],
   });
   hide = true;
+  public isLog = false;
   private urlApi = AppComponent.url + 'log/register';
 
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private route: Router
+    private route: Router,
+    private login: LogeadoService
   ) {}
 
   ngOnInit(): void {}
@@ -34,6 +37,14 @@ export class RegisterFormComponent implements OnInit {
         contrasena: this.registerForm.value.contrasena,
       })
       .subscribe((token) => {
+        sessionStorage.setItem('token', JSON.stringify(token));
+          this.login.logeado = true;
+          this.isLog = true;
+          this.login.setUsuario(token.idUsuario);
+          this.login.setName(token.userName);
+          this.login.setAdmin(token.admin);
+          this.login.setMail(token.userMail);
+
         this.route.navigate(['/']);
       });
   }

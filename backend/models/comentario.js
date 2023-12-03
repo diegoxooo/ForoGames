@@ -18,6 +18,15 @@ const getById = (idTema) => {
     });
 }
 
+const getByIdComentario = (idComentario) => {
+    return new Promise((resolve, reject) => {
+        db.query("SELECT * FROM comentarios WHERE idComent = ? ORDER BY fecha ASC ", [idComentario], (err, rows) => {
+            if (err) reject(err);
+            resolve(rows);
+        });
+    });
+}
+
 const deleteComent = (id) => {
     return new Promise((resolve, reject) => {
         db.query("DELETE from comentarios WHERE idComent = ?", [id], (err, result) => {
@@ -27,11 +36,20 @@ const deleteComent = (id) => {
     });
 }
 
-
+const editarComentario = (id, comentario) => {
+    return new Promise((resolve, reject) => {
+        db.query("UPDATE TABLE comentarios SET comentario = ? WHERE idComent = ?", [comentario, id], (err, result) => {
+            if (err) reject(err);
+            if (result) { resolve(result); }
+        });
+    });
+}
 
 module.exports = {
     insertComentario: insertComentario,
     getById: getById,
     deleteComent: deleteComent,
+    getByIdComentario: getByIdComentario,
+    editarComentario: editarComentario
     
 }

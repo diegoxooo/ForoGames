@@ -22,13 +22,14 @@ export class RespuestasComponent {
   public token = sessionStorage.getItem('token');
 
   temaForm = this.fb.group({
-    comentario: [null],
-    usuario: [this.idUsuario]
+    respuesta: [null],
+    // usuario: [this.idUsuario]
   });
 
   comentForm = this.fb.group({
     respuesta: [null],
   });
+  edit = false;
 
   private urlApi = AppComponent.url;
 
@@ -52,36 +53,48 @@ export class RespuestasComponent {
     this.getItems(id);
   } 
 
-  eliminarComentario(id: string | null): void {
-    this.http.delete<any>(this.urlApi + 'tema/' + id).subscribe(() => { location.reload(); });
-  }
-
-  responderComentario(id: string | null, idUsuario: string | null): void {
-    this.http
-      .post<any>(this.urlApi + 'respuesta/', {
-        id: id,
-        respuesta: this.comentForm.value.respuesta,
-        idUsuario: idUsuario
-      })
-      .subscribe(() => {
-        location.reload();
-      });
+  eliminarRespuesta(id: string | null): void {
+    this.http.delete<any>(this.urlApi + 'respuesta/' + id).subscribe(() => { location.reload(); });
   }
 
   onSubmit(): void {
     let id = this.route.snapshot.paramMap.get('id');
     this.http
-      .post<any>(this.urlApi + 'tema/' + id, {
-        comentario: this.temaForm.value.comentario,
-        usuario: this.temaForm.value.usuario
+      .post<any>(this.urlApi + 'respuesta/', {
+        id: id,
+        respuesta: this.temaForm.value.respuesta,
+        usuario: this.login.getUsuario()
       })
       .subscribe(() => {
         location.reload();
       });
   }
 
+  editarRespuesta(id: string | null): void {
+    this.http.post<any>(this.urlApi + 'respuesta/' + id, {
+      id: id,
+      respuesta: this.comentForm.value.respuesta
+    }).subscribe(() => {
+      location.reload();
+    });
+  }
+
+  // responderComentario(id: string | null, idUsuario: string | null): void {
+    
+  //   this.http
+  //     .post<any>(this.urlApi + 'tema/' + id, {
+  //       comentario: this.temaForm.value.comentario,
+  //       usuario: this.temaForm.value.usuario
+  //     })
+  //     .subscribe(() => {
+  //       location.reload();
+  //     });
+  // }
+
   getItems(id: string | null): void {
     this.service.getAll(id).subscribe((data) => { this.listaResp = data; });
+
+    this.http.get<any>(this.urlApi + 'tema/c/' + id).subscribe((come) => {this.listaComents = come; console.log(this.listaComents)});
 
     // this.http.get<any>(this.urlApi + 'respuesta/').subscribe((resp) => { 
     //   this.listaResp = resp; console.log( this.listaResp);

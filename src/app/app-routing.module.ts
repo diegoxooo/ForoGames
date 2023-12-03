@@ -34,7 +34,7 @@ const routes: Routes = [
       import('./juego/juego.module').then((m) => m.JuegoModule),
   },
   {
-    path: 'respuesta/:id',
+    path: 'comentario/:id',
     loadChildren: () =>
       import('./respuestas/respuestas.module').then((m) => m.RespuestasModule),
   },

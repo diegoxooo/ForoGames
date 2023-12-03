@@ -1,7 +1,7 @@
 <div class="grid-container">
-  <h1 class="mat-h1">{{listaComents[0] ? listaComents[0].tema : null}}</h1>
+  <h1 class="mat-h1">{{listaComents[0] ? listaComents[0].comentario : null}}</h1>
   <mat-grid-list cols="1" rowHeight="215px">
-    <mat-grid-tile *ngFor="let card of listaComents" [colspan]="1" [rowspan]="1">
+    <mat-grid-tile *ngFor="let card of listaResp" [colspan]="1" [rowspan]="1">
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
@@ -10,17 +10,26 @@
             <p>{{card.usuario}}</p>
           </div>
           <div class="col-1" *ngIf="login.getUsuario()==card.usuario || login.getAdmin()=='1'">
-            <mat-icon style="cursor: pointer; color:red; float: right" (click)="eliminarComentario(card.idComent)">delete</mat-icon>
+            <mat-icon style="cursor: pointer; color:red; float: right" (click)="eliminarRespuesta(card.id)">delete</mat-icon>
           </div>
           </div>
           </mat-card-title>
           <mat-card-subtitle> <!-- Otra forma de mostrarlo -->
-                {{card.comentario}}
-                <mat-icon *ngIf="this.token != null;" style="cursor: pointer; float: right">edit</mat-icon>
+            <!-- <div *ngIf="edit==false; else editInput;"> -->
+                {{card.respuesta}}
+              <!-- </div>
+              <ng-template #editInput>
+                <form [formGroup]="comentForm" novalidate>
+                  <mat-form-field class="full-width" appearance="fill">
+                <textarea matInput rows="1" formControlName="respuesta">{{card.respuesta}}</textarea>
+              </mat-form-field>
+              </form>
+              </ng-template>
+                <mat-icon *ngIf="this.token != null;" style="cursor: pointer; float: right" (click)="edit = !edit">edit</mat-icon> -->
             </mat-card-subtitle> 
             <br/>
         </mat-card-header>
-        <mat-card-content>
+        <!-- <mat-card-content>
             <div *ngIf="this.token != null;">
           <form [formGroup]="comentForm" novalidate>
             <div class="row">
@@ -38,7 +47,7 @@
         </div>
           </form> 
         </div>
-        </mat-card-content>
+        </mat-card-content> -->
         
       </mat-card>
     </mat-grid-tile>
@@ -47,14 +56,16 @@
   <div *ngIf="this.token != null;">
   <form [formGroup]="temaForm" novalidate (ngSubmit)="onSubmit()" >
     <mat-form-field class="full-width" appearance="fill">
-      <mat-label>Añade un comentario</mat-label>
-      <textarea matInput rows="5" formControlName="comentario"></textarea>
+      <mat-label>Añade una respuesta</mat-label>
+      <textarea matInput rows="5" formControlName="respuesta"></textarea>
     </mat-form-field>
-    <mat-form-field class="invisible full-width" appearance="fill">
+    <!-- <mat-form-field class="invisible full-width" appearance="fill">
       <input matInput formControlName="usuario"/>
-    </mat-form-field>
+    </mat-form-field> -->
     <mat-card-actions class="centrado">
-      <button mat-raised-button color="primary" type="submit">Añadir comentario</button>
+      <button mat-raised-button color="primary" type="submit">Añadir respuesta</button>
+      &nbsp;&nbsp;&nbsp;
+      <button mat-raised-button color="secondary" type="button" onclick="window.history.back();">Volver</button>
     </mat-card-actions>
   </form>
 </div>

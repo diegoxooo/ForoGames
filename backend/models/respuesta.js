@@ -1,4 +1,6 @@
+const { resolve } = require("path");
 const db = require("../db/db");
+const { rejects } = require("assert");
 
 const responderComent = (id, respuesta, idUsuario) => {
     return new Promise((resolve, reject) => {
@@ -27,8 +29,28 @@ const getRespuestaById = (id) => {
     })
 }
 
+const deleteRespuesta = (id) => {
+    return new Promise((resolve, reject) => {
+        db.query("DELETE FROM respuesta WHERE id = ?", [id], (err, result) => {
+            if (err) reject(err);
+            if (result) { resolve(result); }
+        });
+    });
+}
+
+const editarRespuesta = (id, respuesta) => {
+    return new Promise((resolve, reject) => {
+        db.query("UPDATE TABLE respuesta SET respuesta = ? WHERE id = ?", [respuesta, id], (err, result) => {
+            if (err) reject(err);
+            if (result) { resolve(result); }
+        });
+    });
+}
+
 module.exports = {
     responderComent: responderComent,
     getRespuesta: getRespuesta,
-    getRespuestaById: getRespuestaById
+    getRespuestaById: getRespuestaById,
+    deleteRespuesta: deleteRespuesta,
+    editarRespuesta: editarRespuesta
 }

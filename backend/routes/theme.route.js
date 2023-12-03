@@ -20,11 +20,22 @@ themeRoute.post('/:id', async (req, res) => {
     res.json(coment);
 });
 
-
+themeRoute.get('/c/:idComentario', async (req, res) => {
+    let id = req.params.idComentario;
+    const coment = await Coment.getByIdComentario(id);
+    res.json(coment);
+});
 
 themeRoute.delete('/:id', async (req, res) => {
     let id = req.params.id;
     const coment = await Coment.deleteComent(id);
+    res.json(coment);
+});
+
+themeRoute.post('/c/:idComentario', async (req, res) => {
+    let id = req.params.idComentario;
+    let comentario = req.body.comentario;
+    const coment = await Coment.editarComentario(id, comentario);
     res.json(coment);
 });
 

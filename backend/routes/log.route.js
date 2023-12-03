@@ -8,8 +8,24 @@ const autenticacion = require('./autenticacion');
 
 logRoute.post('/register', async (req, res) => {
     req.body.contrasena = bcrypt.hashSync(req.body.contrasena, 10);
+    try{
     const result = await Users.insert(req.body);
-    res.json(result);
+    
+    const user = await Users.getById(result.insertId);
+
+    res.json({
+        succesfull: createToken(user),
+        done: "Login correct",
+        idUsuario: user.idUsuario,
+        userName: user.usuario,
+        userMail: user.email, // Puede que innecesario
+        admin: user.admin
+    });
+    // res.json(result);
+    }catch(e){
+        console.log("Ya existe un usuario con este email");
+    }
+    
 });
 
 logRoute.post('/login', async (req, res) => {
