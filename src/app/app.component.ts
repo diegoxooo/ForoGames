@@ -9,5 +9,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'forogames';
 
-  public static url = 'http://192.168.1.65:8080/';
+  public static url = 'http://192.168.1.39:8080/';
 }
